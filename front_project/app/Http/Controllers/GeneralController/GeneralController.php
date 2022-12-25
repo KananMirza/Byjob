@@ -11,8 +11,7 @@ class GeneralController extends Controller
     public function index(){
         $response = Http::withHeaders([
             'X-Static-Token' => 'FYzkwEo9OnWOL2Zre2X9n9CWvud762SH',
-        ])->get('http://127.0.0.1:8000/api/v1/User');
-        dd($response->json());
+        ])->get('http://127.0.0.1:8000/api/v1/User')->json();
         return view('index');
     }
 }
