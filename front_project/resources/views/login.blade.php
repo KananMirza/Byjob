@@ -27,9 +27,12 @@
                         <h3>Welcome Back Sign in to Continue</h3>
                         <span>Don't Have an Account? <a href="{{route('register')}}">Sign Up!</a></span>
                     </div>
-                    <form method="post" id="login-form">
+                    <form method="post" id="login-form" action="{{route('login_post')}}">
+                        @include('layouts.messages')
+                        @csrf
+
                         <div class="utf-no-border">
-                            <input type="text" class="utf-with-border" name="emailaddress" id="emailaddress" placeholder="Email Address" required/>
+                            <input type="text" class="utf-with-border" name="email" id="emailaddress" placeholder="Email Address" required/>
                         </div>
                         <div class="utf-no-border">
                             <input type="password" class="utf-with-border" name="password" id="password" placeholder="Password" required/>

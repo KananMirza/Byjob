@@ -17,5 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/v1/')->middleware('checkTokenApi')->group(function () {
     Route::get('User', [AuthController::class, 'getUser']);
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('register', [AuthController::class, 'register']);
 });
+Route::prefix('/v1/')->middleware('jwtTokenApi')->controller(AuthController::class)->group(function () {
+    Route::get('me', 'me');
+    Route::post('logout', 'logout');
+});
+
+
 
