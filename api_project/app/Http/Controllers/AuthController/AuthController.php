@@ -32,7 +32,6 @@ class AuthController extends Controller
                 'message' => 'Unauthorized',
             ], Response::HTTP_UNAUTHORIZED);
         }
-
         $user = Auth::user();
         $user->jwt_token = $token;
         $user->save();
