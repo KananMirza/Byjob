@@ -4,8 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class IsUserLogout
+class isUserLogin
 {
     /**
      * Handle an incoming request.
@@ -16,6 +17,9 @@ class IsUserLogout
      */
     public function handle(Request $request, Closure $next)
     {
+        if(!Auth::user()){
+            return redirect()->route('login');
+        }
         return $next($request);
     }
 }

@@ -4,8 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class IsUserLogin
+class isUserLogout
 {
     /**
      * Handle an incoming request.
@@ -16,6 +17,9 @@ class IsUserLogin
      */
     public function handle(Request $request, Closure $next)
     {
+        if(Auth::user()){
+            return redirect()->route('profileIndex');
+        }
         return $next($request);
     }
 }
